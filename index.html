@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#00160d" />
+  <meta name="description" content="Phòng trưng bày thực tế ảo 3D U Đông - bản dựng lại từ kiến trúc React/Pannellum." />
+  <title>3D U Đông · Phòng trưng bày thực tế ảo</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" aria-live="polite">
+    <section id="landing" class="landing">
+      <div class="landing__overlay"></div>
+      <div class="landing__content">
+        <p class="eyebrow">TRẢI NGHIỆM DI SẢN SỐ</p>
+        <h1>3D U Đông</h1>
+        <p>Không gian tham quan 360° trên trình duyệt, điều hướng theo sảnh và phòng trưng bày.</p>
+        <button id="btn-enter" class="btn btn-primary">Bắt đầu tham quan</button>
+      </div>
+    </section>
+
+    <section id="tour" class="tour is-hidden">
+      <div id="panorama" class="panorama"></div>
+
+      <header class="topbar">
+        <div>
+          <p class="topbar__kicker">PHÒNG TRƯNG BÀY THỰC TẾ ẢO</p>
+          <h2 id="scene-title">3D U Đông</h2>
+        </div>
+        <div class="topbar__actions">
+          <button class="icon-btn" id="btn-map" title="Sơ đồ" aria-label="Mở sơ đồ">⌘</button>
+          <button class="icon-btn" id="btn-fullscreen" title="Toàn màn hình" aria-label="Toàn màn hình">⛶</button>
+          <button class="icon-btn" id="btn-home" title="Trang chủ" aria-label="Trang chủ">⌂</button>
+        </div>
+      </header>
+
+      <nav class="dock" aria-label="Điều hướng phòng">
+        <button data-route="/lobby">Sảnh chính</button>
+        <button data-route="/room_1">Phòng 1</button>
+        <button data-route="/room_2">Phòng 2</button>
+        <button data-route="/room_3">Phòng 3</button>
+        <button data-route="/room_4">Phòng 4</button>
+      </nav>
+
+      <div class="hint">Kéo để quan sát · cuộn để thu phóng · chọn hotspot để di chuyển</div>
+    </section>
+  </div>
+
+  <dialog id="modal">
+    <button id="modal-close" class="modal-close" aria-label="Đóng">×</button>
+    <div id="modal-content"></div>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.js"></script>
+  <script src="scenes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
